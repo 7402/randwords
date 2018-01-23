@@ -1,0 +1,76 @@
+.TH randwords 1
+
+.SH NAME
+randwords \- send series of random words to standard output
+
+.SH SYNOPSIS
+.nf
+\fBrandwords\fR [\fB\-c\fR \fIWORDS_PER_ROW\fR] [\fB\-n\fR \fINUMBER_OF_WORDS\fR]
+          [\fB\-f\fR \fIFROM_WORD_NUMBER\fR] [\fB\-t\fR \fITO_WORD_NUMBER\fR]
+.fi
+
+.SH DESCRIPTION
+Command\-line tool that generates a series of random words for Morse code practice,
+and prints to standard output. Words are chosen from a selected subset of 5000 common
+English words.
+
+.SH OPTIONS
+
+.TP
+.BR \-c " " \fIWORDS_PER_ROW\fR
+Number of words per row. Default is 5.
+
+.TP
+.BR \-n " " \fINUMBER_OF_WORDS\fR
+Total number of words to send. Default is 35.
+
+.TP
+.BR \-f " " \fIFROM_WORD_NUMBERR
+Include words from list beginning at this number, e.g., \fB-f 200\fR means start
+using words from the 200th most common word. Default is 1.
+
+.TP
+.BR \-t " " \fITO_WORD_NUMBER\fR
+Include words from list up to this number, e.g., \fB-t 500\fR means use words up to
+the 500th most common word. Default is 5000.
+
+.TP
+.BR \-\-version
+Show version.
+
+.TP
+.BR \-h ", " \-\-help\fR
+Show help message.
+
+.TP
+.BR \-\-license
+Show software copyright and license.
+
+.TP
+.BR \-\-man\-page
+Show source for this man page
+
+.SH EXAMPLES
+Print 50 words selected from the most common 100 English words, with 10 words per row:
+.PP
+.nf
+.RS
+\fB randwords -t 100 -n 50 -c 10\fR
+.RE
+.fi
+.PP
+
+Play Morse code for 80 words selected from the 100th to 200th most common English words:
+.PP
+.nf
+.RS
+\fB randwords -f 100 -t 200 -n 80 | mbeep -i /dev/stdin -c\fR
+.RE
+.fi
+.PP
+
+.SH SEE ALSO
+.BR mbeep (1)
+
+.SH AUTHOR
+Michael Budiansky \fIhttps://www.7402.org/email\fR
