@@ -56,6 +56,10 @@ Play Morse code for 80 words selected from the 100th to 200th most common Englis
 randwords -f 100 -t 200 -n 80 | mbeep -i /dev/stdin -c
 ```
 
+### Notes
+
+See also [Computer Tools for Morse Code Practice](https://7402.org/blog/2018/computer-tools-for-morse-code-practice.html).
+
 ### License
 
 Mostly BSD
