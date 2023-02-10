@@ -2,7 +2,7 @@
 //  main.c
 //  randwords
 //
-// Copyright (C) 2018 Michael Budiansky. All rights reserved.
+// Copyright (C) 2018-22 Michael Budiansky. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without modification, are permitted
 // provided that the following conditions are met:
@@ -49,12 +49,12 @@ int main(int argc, const char * argv[]) {
         //  -f from
         if (strcmp(argv[index], "-f") == 0 && index + 1 < argc) {
             from_index = atoi(argv[++index]) - 1;
-            error = from_index < 0 || from_index > max_index || from_index >= to_index;
+            error = from_index < 0 || from_index > max_index || from_index > to_index;
             
         //  -t to
         } else if (strcmp(argv[index], "-t") == 0 && index + 1 < argc) {
             to_index = atoi(argv[++index]) - 1;
-            error = to_index < 0 || to_index > max_index || from_index >= to_index;
+            error = to_index < 0 || to_index > max_index || from_index > to_index;
             
         //  -c words_per_row
         } else if (strcmp(argv[index], "-c") == 0 && index + 1 < argc) {
@@ -69,7 +69,7 @@ int main(int argc, const char * argv[]) {
         //  -v --version       print version
         } else if ((strcmp(argv[index], "--version") == 0) ||
                    (strcmp(argv[index], "-v") == 0)) {
-            printf("v0.9\n");
+            printf("randwords 0.9.2\n");
             silent = true;
 
         //  -h --help       print help for randwords
